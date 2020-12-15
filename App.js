@@ -5,7 +5,7 @@ import * as SQLite from 'expo-sqlite';
 import { addTables, seedMonstersTable} from './db/seed';
 
 const db = SQLite.openDatabase("dnd_tracker.db");
-
+// DB test [START]
 const showTestResult = () => {
   db.transaction( tx => {
     tx.executeSql(
@@ -22,6 +22,8 @@ if(db) {
 } else {
   console.log('db not found!')
 }
+// DB test [END]
+
 export default function App() {
   return (
     <View style={styles.container}>
