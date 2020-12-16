@@ -20,17 +20,17 @@ const transactionSuccess = () => console.log("SUCCESS");
 const addMonstersTable = `
     CREATE TABLE IF NOT EXISTS monsters (
         id INTEGER PRIMARY KEY,
-        name VARCHAR(20),
-        health INTEGER Default 0,
-        armor_class INTEGER DEFAULT 0,
-        strength INTEGER DEFAULT 0,
-        dexterity INTEGER DEFAULT 0,
-        constitution INTEGER DEFAULT 0,
-        intelligence INTEGER DEFAULT 0,
-        wisdom INTEGER DEFAULT 0,
-        charisma INTEGER DEFAULT 0,
+        name TEXT,
+        health INTEGER Default 10,
+        armor_class INTEGER DEFAULT 10,
+        strength INTEGER DEFAULT 10,
+        dexterity INTEGER DEFAULT 10,
+        constitution INTEGER DEFAULT 10,
+        intelligence INTEGER DEFAULT 10,
+        wisdom INTEGER DEFAULT 10,
+        charisma INTEGER DEFAULT 10,
         auto_roll BOOLEAN DEFAULT true,
-        notes VARCHAR(255)
+        notes TEXT
     )
 `;
 
