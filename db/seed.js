@@ -1,5 +1,8 @@
 export const addTables = db => {
     db.transaction( tx => {
+        tx.executeSql(deleteTable('monsters'))
+        tx.executeSql(deleteTable('sessions'))
+        tx.executeSql(deleteTable('active_monsters'))
         tx.executeSql(addMonstersTable);
         tx.executeSql(addSessionsTable);
         tx.executeSql(addActiveMonstersTable);
@@ -16,7 +19,9 @@ export const seedMonstersTable = db => {
 const transactionError = (err) => console.log("ERROR",err);
 const transactionSuccess = () => console.log("SUCCESS");
 
-
+const deleteTable = (name) => `
+    DROP TABLE ${name};
+`
 const addMonstersTable = `
     CREATE TABLE IF NOT EXISTS monsters (
         id INTEGER PRIMARY KEY,
