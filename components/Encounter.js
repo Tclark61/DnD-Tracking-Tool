@@ -7,6 +7,9 @@ import React,{Component} from 'react';
 
  class Encounter extends Component{
     // initialize state
+        // activeCharacters: <binary Heap>
+        // dequeuedCharacters: <array>
+        // removedCharacters: <array>
 
     // on componentdidMount, addCharacters()
 
@@ -16,11 +19,13 @@ import React,{Component} from 'react';
 
     //startEncounter()
         // hides CharacterCreator
+        // saves only monsters to active session
         // initialize component FightMode
     
 
-    // EndEncounter()
-        // saves all characters to DB
+    // endEncounter()
+        // re-saves all characters to DB
+        // redirects to Home
  }
 
 

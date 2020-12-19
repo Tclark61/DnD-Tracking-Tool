@@ -13,7 +13,7 @@ class CharacterCreator extends Component{
         // onPress= hide button
 
     // <Button "finished" />
-        // onPress = add characterQueueArr to Encounter state
+        // onPress = sorts queue by initiative, add Character to binary heap called CharacterQueue
         
 }
 
