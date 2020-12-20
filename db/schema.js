@@ -1,3 +1,5 @@
+
+
 export const addMonstersTable = `
     CREATE TABLE IF NOT EXISTS monsters (
         id INTEGER PRIMARY KEY,
