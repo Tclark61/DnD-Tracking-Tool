@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 import { addTables, seedMonstersTable} from './db/seed';
+import Encounter from './components/Encounter';
+import { StyleSheet,View, Button, FlatList } from 'react-native';
+
 
 const db = SQLite.openDatabase("dnd_tracker.db");
 // DB test [START]
@@ -26,13 +28,27 @@ const db = SQLite.openDatabase("dnd_tracker.db");
 
 class App extends Component {
 
+    state = {
+      encounter:false
+    }
+
   render() {
+    let encounter = null;
+    if (this.state.encounter) {
+      encounter = <Encounter/>
+    } else {
+      encounter = (
+        <Button title="Start Encounter" onPress={()=> this.setState({encounter:true})}/>
+      )
+    }
     return (
       <View style={styles.container}>
+        {encounter}
         <StatusBar style="auto" />
       </View>
     );
   }
+  
   
 }
 
