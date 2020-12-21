@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { StyleSheet, Text, View, Button, Modal } from 'react-native';
 
 class CharacterCreator extends Component{
     // MODAL
@@ -14,7 +15,16 @@ class CharacterCreator extends Component{
 
     // <Button "finished" />
         // onPress = sorts queue by initiative, add Character to binary heap called CharacterQueue
-        
+        render() {
+            return (
+                <Modal visible={this.props.visible} animationType="slide">
+                    <View>
+                        <Text>Character creator</Text>
+                        <Button title="go Back" onPress={this.props.end}/>
+                    </View> 
+                </Modal>
+            )
+        }
 }
 
 
