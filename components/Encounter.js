@@ -6,13 +6,14 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 import React,{Component} from 'react';
 import CharacterCreator from './CharacterCreator';
+import MaxBinaryHeap from '../utils/binaryHeap';
 
  class Encounter extends Component{
-
-    state = {
-        activeCharacters:null,
-        dequeuedCharacters:null,
-        removedCharacters:null,
+   
+     state = {
+        activeCharacters: new MaxBinaryHeap(),
+        dequeuedCharacters:[],
+        removedCharacters:[],
         characterCreationMode:false
     }
 
