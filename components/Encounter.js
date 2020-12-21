@@ -7,10 +7,12 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import React,{Component} from 'react';
 
  class Encounter extends Component{
-    // initialize state
-        // activeCharacters: <binary Heap>
-        // dequeuedCharacters: <array>
-        // removedCharacters: <array>
+
+    state = {
+        activeCharacters:null,
+        dequeuedCharacters:null,
+        removedCharacters:null
+    }
 
     // on componentdidMount, addCharacters()
 

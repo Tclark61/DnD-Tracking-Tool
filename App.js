@@ -33,6 +33,7 @@ class App extends Component {
     }
 
     endEncounter = () => {
+      
       this.setState({encounter:false})
     }
 
