@@ -3,7 +3,7 @@
  * will house the views and will import 
  * the appropriate classes upon initialization
  * */
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import React,{Component} from 'react';
 
  class Encounter extends Component{
@@ -31,6 +31,7 @@ import React,{Component} from 'react';
         return (
             <View>
                 <Text>Encounter MODE</Text>
+                <Button title="Cancel" onPress={this.props.cancel}/>
             </View>
         )
         

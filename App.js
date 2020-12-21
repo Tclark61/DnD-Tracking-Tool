@@ -32,10 +32,14 @@ class App extends Component {
       encounter:false
     }
 
+    endEncounter = () => {
+      this.setState({encounter:false})
+    }
+
   render() {
     let encounter = null;
     if (this.state.encounter) {
-      encounter = <Encounter/>
+      encounter = <Encounter cancel={this.endEncounter}/>
     } else {
       encounter = (
         <Button title="Start Encounter" onPress={()=> this.setState({encounter:true})}/>
