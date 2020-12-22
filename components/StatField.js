@@ -84,7 +84,10 @@ import AutoRoller from './AutoRoller';
                 <Text>New {props.type}</Text>
                 {fields}
                 <Button title="cancel" onPress={props.cancel}/>
-                <Button title="Confirm" onPress={addCharacter}/>
+                <Button title="Confirm" onPress={()=>{
+                    addCharacter();
+                    props.cancel();
+                }}/>
             </ScrollView>
         </SafeAreaView>
         
