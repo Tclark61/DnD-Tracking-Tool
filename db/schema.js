@@ -1,4 +1,16 @@
-
+export const MONSTER_SCHEMA = {
+    name:'',
+    health: 10,
+    armor_class:10,
+    strength:10,
+    dexterity:10,
+    constitution:10,
+    intelligence:10,
+    wisdom: 10,
+    charisma:10,
+    auto_roll:true,
+    notes:''
+}
 
 export const addMonstersTable = `
     CREATE TABLE IF NOT EXISTS monsters (
