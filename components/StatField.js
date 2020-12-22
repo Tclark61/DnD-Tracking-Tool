@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Modal } from 'react-native';
-
+import { MONSTER_SCHEMA } from '../db/schema';
+import Character from '../utils/character';
 
  const StatField = props => {
+     const [stats,addStat] = useState(MONSTER_SCHEMA);
     // UI form for all stats and notes
+    // <NumberInput/>
     // if(props.autoRoll) InitiateRoll()
     // if (props.player) only show name and initiative field
 
@@ -15,7 +18,8 @@ import { StyleSheet, Text, View, Button, Modal } from 'react-native';
         // makes a Character component which is Player || Monster
         // adds class to CharacterCreator -> state -> CharacterQueueArr
     const addCharacter = () => {
-        props.add(55);
+        let c = new Character(stats)
+        props.add(c);
     }
     return (
         <View>
