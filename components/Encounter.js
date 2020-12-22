@@ -49,7 +49,9 @@ import MaxBinaryHeap from '../utils/binaryHeap';
                 <Text>Encounter MODE</Text>
                 <CharacterCreator 
                     visible={this.state.characterCreationMode}
-                    end={this.onCharacterCreationEnd.bind(this)}/>
+                    end={this.onCharacterCreationEnd.bind(this)}
+                    queue={this.state.activeCharacters}
+                    />
                 <Button 
                     title="add Characters" 
                     onPress={this.onCharacterCreationStart.bind(this)}
