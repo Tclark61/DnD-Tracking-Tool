@@ -5,18 +5,18 @@ export default class MaxBinaryHeap {
         this.values = [];
     }
 
-    insert(value) {
-        this.values.push(value);
-        this._bubbleUp(value);
+    insert(character) {
+        this.values.push(character);
+        this._bubbleUp(character);
     }
 
-    _bubbleUp(val) {
+    _bubbleUp(character) {
         let idx = this.values.length - 1;
         while (idx > 0) {
             let parentIdx = Math.floor((idx - 1) / 2)
             let parent = this.values[parentIdx];
-            if (val <= parent) break;
-            this.values[parentIdx] = val;
+            if (character.initiative <= parent.initiative) break;
+            this.values[parentIdx] = character;
             this.values[idx] = parent;
             idx = parentIdx;
         }
@@ -45,14 +45,14 @@ export default class MaxBinaryHeap {
 
             if(leftChildIdx < length) {
                 leftChild = this.values[leftChildIdx];
-                if(leftChild > el) {
+                if(leftChild.initiative > el.initiative) {
                     swap = leftChildIdx;
                 }
             }
             if (rightChildIdx < length) {
                 rightChild = this.values[rightChildIdx];
-                if ((swap === null && rightChild > el) ||
-                 (swap !== null && rightChild > leftChild)
+                if ((swap === null && rightChild.initiative > el.initiative) ||
+                 (swap !== null && rightChild.initiative > leftChild.initiative)
                  ){
                      swap = rightChildIdx;
                  }
@@ -65,5 +65,4 @@ export default class MaxBinaryHeap {
             idx = swap;
         }
     }
-
 }
