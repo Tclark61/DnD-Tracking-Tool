@@ -28,8 +28,11 @@ import { StyleSheet,View, Button, FlatList, TextInput,Text } from 'react-native'
 const styles = StyleSheet.create({
     container:{
         padding:12,
+        margin:10,
         paddingLeft:40,
-        paddingRight:40
+        paddingRight:40,
+        borderWidth:2,
+        borderColor:'black'
     }
 })
 

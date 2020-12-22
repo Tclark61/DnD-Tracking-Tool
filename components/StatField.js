@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, TextInput, ScrollView,SafeAreaView } fr
 import { MONSTER_SCHEMA } from '../db/schema';
 import Character from '../utils/character';
 import NumberInput from './NumberInput';
+import AutoRoller from './AutoRoller';
 
  const StatField = props => {
      const [stats,changeStat] = useState(MONSTER_SCHEMA);
@@ -48,7 +49,7 @@ import NumberInput from './NumberInput';
           <View>
               <TextInput style={styles.input} placeholder="enter name" value={stats.name} onChangeText={(val)=>onChangeTextStat("name",val)}/>
               <NumberInput type="health" value={stats.health.toString()} changeStat={onchangeNumStat}/>
-              {/* TODO: AUTOROLL Component for initiative */}
+              <AutoRoller/>
               <NumberInput type="armor_class" value={stats.armor_class.toString()} changeStat={onchangeNumStat}/>
               <NumberInput type="strength" value={stats.strength.toString()} changeStat={onchangeNumStat}/>
               <NumberInput type="dexterity" value={stats.dexterity.toString()} changeStat={onchangeNumStat}/>
