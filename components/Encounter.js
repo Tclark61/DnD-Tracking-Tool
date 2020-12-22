@@ -44,10 +44,11 @@ import MaxBinaryHeap from '../utils/binaryHeap';
     }
         
     render() {
-        console.log(this.state.activeCharacters);
+        
         return (
             <View>
                 <Text>Encounter MODE</Text>
+                <Button title="view characters" onPress={()=>console.log(this.state.activeCharacters)}/>
                 <CharacterCreator 
                     visible={this.state.characterCreationMode}
                     end={this.onCharacterCreationEnd.bind(this)}

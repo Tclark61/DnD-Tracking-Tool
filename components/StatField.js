@@ -49,7 +49,7 @@ import AutoRoller from './AutoRoller';
           <View>
               <TextInput style={styles.input} placeholder="enter name" value={stats.name} onChangeText={(val)=>onChangeTextStat("name",val)}/>
               <NumberInput type="health" value={stats.health.toString()} changeStat={onchangeNumStat}/>
-              <AutoRoller/>
+              <AutoRoller type="initiative" changeStat={onchangeNumStat}/>
               <NumberInput type="armor_class" value={stats.armor_class.toString()} changeStat={onchangeNumStat}/>
               <NumberInput type="strength" value={stats.strength.toString()} changeStat={onchangeNumStat}/>
               <NumberInput type="dexterity" value={stats.dexterity.toString()} changeStat={onchangeNumStat}/>

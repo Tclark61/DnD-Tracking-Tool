@@ -37,7 +37,6 @@ class CharacterCreator extends Component{
         }
         onCharacterAdd(character) {
             this.props.queue.insert(character);
-            console.log(this.props.queue)
         }
 
 
