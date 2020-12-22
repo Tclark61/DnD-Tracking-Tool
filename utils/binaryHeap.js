@@ -1,3 +1,5 @@
+// TODO redo binary heap to allow objects
+
 export default class MaxBinaryHeap {
     constructor() {
         this.values = [];
