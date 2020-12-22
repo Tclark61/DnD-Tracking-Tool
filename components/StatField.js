@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Modal } from 'react-native';
 import { MONSTER_SCHEMA } from '../db/schema';
 import Character from '../utils/character';
+import NumberInput from './NumberInput';
 
  const StatField = props => {
-     const [stats,addStat] = useState(MONSTER_SCHEMA);
+     const [stats,changeStat] = useState(MONSTER_SCHEMA);
     // UI form for all stats and notes
     // <NumberInput/>
     // if(props.autoRoll) InitiateRoll()
@@ -21,9 +22,21 @@ import Character from '../utils/character';
         let c = new Character(stats)
         props.add(c);
     }
+
+    const onchangeStat = (stat,val) => {
+        console.log(stat,val)
+        changeStat(currentStats=>{
+            return {
+                ...currentStats,
+                [stat]:parseInt(val)
+            }
+
+        })
+    }
     return (
         <View>
             <Text>New {props.type}</Text>
+            <NumberInput type="strength" value={stats.strength.toString()} changeStat={onchangeStat}/>
             <Button title="cancel" onPress={props.cancel}/>
             <Button title="add" onPress={addCharacter}/>
         </View>
