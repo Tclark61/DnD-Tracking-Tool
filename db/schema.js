@@ -1,4 +1,17 @@
-
+export const MONSTER_SCHEMA = {
+    name:'',
+    health: 10,
+    armor_class:10,
+    strength:10,
+    dexterity:10,
+    constitution:10,
+    intelligence:10,
+    wisdom: 10,
+    charisma:10,
+    auto_roll:true,
+    initiative:10,
+    notes:''
+}
 
 export const addMonstersTable = `
     CREATE TABLE IF NOT EXISTS monsters (
@@ -13,6 +26,7 @@ export const addMonstersTable = `
         wisdom INTEGER DEFAULT 10,
         charisma INTEGER DEFAULT 10,
         auto_roll BOOLEAN DEFAULT true,
+        initiative INTEGER DEFAULT 10,
         notes TEXT
     )
 `;

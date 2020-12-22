@@ -3,15 +3,20 @@
  * will house the views and will import 
  * the appropriate classes upon initialization
  * */
+import { StyleSheet, Text, View, Button } from 'react-native';
 import React,{Component} from 'react';
+import CharacterCreator from './CharacterCreator';
+import MaxBinaryHeap from '../utils/binaryHeap';
 
  class Encounter extends Component{
-    // initialize state
-        // activeCharacters: <binary Heap>
-        // dequeuedCharacters: <array>
-        // removedCharacters: <array>
+   
+     state = {
+        activeCharacters: new MaxBinaryHeap(),
+        dequeuedCharacters:[],
+        removedCharacters:[],
+        characterCreationMode:false
+    }
 
-    // on componentdidMount, addCharacters()
 
     // addCharacters()
         // initialize component CharacterCreator
@@ -21,11 +26,46 @@ import React,{Component} from 'react';
         // hides CharacterCreator
         // saves only monsters to active session
         // initialize component FightMode
-    
 
     // endEncounter()
         // re-saves all characters to DB
         // redirects to Home
+    onCharacterCreationStart () {
+        this.setState({
+            ...this.state,
+            characterCreationMode:true
+        })
+    }
+    onCharacterCreationEnd () {
+        this.setState({
+            ...this.state,
+            characterCreationMode:false
+        })
+    }
+        
+    render() {
+        
+        return (
+            <View>
+                <Text>Encounter MODE</Text>
+                <Button title="view characters" onPress={()=>console.log(this.state.activeCharacters)}/>
+                <CharacterCreator 
+                    visible={this.state.characterCreationMode}
+                    end={this.onCharacterCreationEnd.bind(this)}
+                    queue={this.state.activeCharacters}
+                    />
+                <Button 
+                    title="add Characters" 
+                    onPress={this.onCharacterCreationStart.bind(this)}
+                />
+                <Button 
+                    title="Cancel" 
+                    onPress={this.props.cancel}
+                />
+            </View>
+        )
+        
+    }
  }
 
 
