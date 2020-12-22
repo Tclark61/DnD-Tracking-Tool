@@ -44,6 +44,7 @@ import MaxBinaryHeap from '../utils/binaryHeap';
     }
         
     render() {
+        console.log(this.state.activeCharacters);
         return (
             <View>
                 <Text>Encounter MODE</Text>

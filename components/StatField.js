@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Modal } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, ScrollView,SafeAreaView } from 'react-native';
 import { MONSTER_SCHEMA } from '../db/schema';
 import Character from '../utils/character';
 import NumberInput from './NumberInput';
@@ -19,13 +19,12 @@ import NumberInput from './NumberInput';
         // makes a Character component which is Player || Monster
         // adds class to CharacterCreator -> state -> CharacterQueueArr
     const addCharacter = () => {
-        let c = new Character(stats)
+        let c = new Character(stats,props.type)
         props.add(c);
     }
 
-    const onchangeStat = (stat,val) => {
+    const onchangeNumStat = (stat,val) => {
         
-        console.log(stat,val)
         changeStat(currentStats=>{
             return {
                 ...currentStats,
@@ -34,15 +33,72 @@ import NumberInput from './NumberInput';
 
         })
     }
+
+    const onChangeTextStat = (stat,string) => {
+        changeStat(currentStats => {
+            return {
+                ...currentStats,
+                [stat]:string
+            }
+        })
+    }
+
+    const createMonsterFields = () => {
+      return (
+          <View>
+              <TextInput style={styles.input} placeholder="enter name" value={stats.name} onChangeText={(val)=>onChangeTextStat("name",val)}/>
+              <NumberInput type="health" value={stats.health.toString()} changeStat={onchangeNumStat}/>
+              {/* TODO: AUTOROLL Component for initiative */}
+              <NumberInput type="armor_class" value={stats.armor_class.toString()} changeStat={onchangeNumStat}/>
+              <NumberInput type="strength" value={stats.strength.toString()} changeStat={onchangeNumStat}/>
+              <NumberInput type="dexterity" value={stats.dexterity.toString()} changeStat={onchangeNumStat}/>
+              <NumberInput type="constitution" value={stats.constitution.toString()} changeStat={onchangeNumStat}/>
+              <NumberInput type="intelligence" value={stats.intelligence.toString()} changeStat={onchangeNumStat}/>
+              <NumberInput type="wisdom" value={stats.wisdom.toString()} changeStat={onchangeNumStat}/>
+              <NumberInput type="charisma" value={stats.charisma.toString()} changeStat={onchangeNumStat}/>
+              <TextInput style={styles.input} placeholder="notes" value={stats.notes} onChangeText={(val)=>onChangeTextStat("notes",val)}/>
+          </View>
+      )
+
+    }
+
+    const createPlayerFields = () => {
+        return (
+            <View>
+                <TextInput style={styles.input} placeholder="enter name" value={stats.name} onChangeText={(val)=>onChangeTextStat("name",val)}/>
+                <NumberInput type="initiative" value={stats.initiative.toString()} changeStat={onchangeNumStat}/>
+            </View>
+        )
+    }
+
+    let fields;
+    if(props.type === 'monster') {
+        fields = createMonsterFields() 
+    } else {
+        fields = createPlayerFields()
+    }
     return (
-        <View>
-            <Text>New {props.type}</Text>
-            <NumberInput type="strength" value={stats.strength.toString()} changeStat={onchangeStat}/>
-            <Button title="cancel" onPress={props.cancel}/>
-            <Button title="add" onPress={addCharacter}/>
-        </View>
+        <SafeAreaView style={styles.container}>
+            <ScrollView>
+                <Text>New {props.type}</Text>
+                {fields}
+                <Button title="cancel" onPress={props.cancel}/>
+                <Button title="Confirm" onPress={addCharacter}/>
+            </ScrollView>
+        </SafeAreaView>
+        
     )
 
 }
+
+const styles = StyleSheet.create({
+    container: {
+        paddingBottom:40,
+    },
+    input:{
+        margin:12
+    }
+    
+})
 
 export default StatField;
