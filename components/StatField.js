@@ -24,11 +24,12 @@ import NumberInput from './NumberInput';
     }
 
     const onchangeStat = (stat,val) => {
+        
         console.log(stat,val)
         changeStat(currentStats=>{
             return {
                 ...currentStats,
-                [stat]:parseInt(val)
+                [stat]:parseInt(val) || 0
             }
 
         })
