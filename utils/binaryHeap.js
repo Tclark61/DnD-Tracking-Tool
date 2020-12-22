@@ -1,4 +1,4 @@
-class MaxBinaryHeap {
+export default class MaxBinaryHeap {
     constructor() {
         this.values = [];
     }
@@ -65,5 +65,3 @@ class MaxBinaryHeap {
     }
 
 }
-
-export default MaxBinaryHeap;
