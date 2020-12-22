@@ -9,6 +9,7 @@ export const MONSTER_SCHEMA = {
     wisdom: 10,
     charisma:10,
     auto_roll:true,
+    initiative:10,
     notes:''
 }
 
@@ -25,6 +26,7 @@ export const addMonstersTable = `
         wisdom INTEGER DEFAULT 10,
         charisma INTEGER DEFAULT 10,
         auto_roll BOOLEAN DEFAULT true,
+        initiative INTEGER DEFAULT 10,
         notes TEXT
     )
 `;
